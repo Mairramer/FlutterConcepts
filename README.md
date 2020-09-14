@@ -1,6 +1,10 @@
 # flutter_gofast
+Aprendendo com Renato Mota
 
-A new Flutter project.
+GitHub(https://github.com/RenatoLucasMota)
+
+YouTube(https://www.youtube.com/c/RenatoMotaDev)
+
 
 ## Getting Started
 
