@@ -1,11 +1,29 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gofast/src/core/internationalization/app_translator.dart';
+import 'package:flutter_gofast/src/app/app_controller.dart';
+import 'package:flutter_modular/flutter_modular.dart';
 
 class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.amber,
-        body: Center(child: Text(AppTranslator(context).text('welcome'))));
+        body: Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          RaisedButton(
+            child: Text("Theme Dark"),
+            onPressed: () {
+              Modular.get<AppController>().setThemeData(ThemeMode.dark);
+            },
+          ),
+          RaisedButton(
+            child: Text("Theme Light"),
+            onPressed: () {
+              Modular.get<AppController>().setThemeData(ThemeMode.light);
+            },
+          )
+        ],
+      ),
+    ));
   }
 }
