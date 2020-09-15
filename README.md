@@ -1,5 +1,5 @@
 # flutter_gofast
-Aprendendo com Renato Mota
+Aprendendo conceitos importantes com Renato Mota
 
 GitHub(https://github.com/RenatoLucasMota)
 
