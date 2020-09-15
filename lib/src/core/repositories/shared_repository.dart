@@ -1,6 +1,7 @@
 import 'package:flutter_gofast/src/core/interfaces/shared_repository_interface.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+//pode ser usado para diversas opçoes
 class SharedRepository implements ISharedPrederenceInterface {
   @override
   Future<dynamic> getValue<T>(String key) async {
