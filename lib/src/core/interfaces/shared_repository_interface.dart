@@ -1,5 +1,9 @@
+import 'package:flutter/material.dart';
+
 abstract class ISharedPrederenceInterface {
-  setInstance();
-  dynamic getValue<T>(String key);
-  Future<bool> setValue<T>(String key, dynamic value);
+  String getUserInfo();
+  saveUserInfo(String userInfo);
+
+  Future<ThemeMode> getThemeMode();
+  Future<bool> saveThemeMode(ThemeMode themeMode);
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gofast/src/app/app_controller.dart';
-import 'package:flutter_gofast/src/core/internationalization/app_localization.dart';
+import 'package:flutter_gofast/src/core/features/internationalization/app_localization.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -20,6 +20,7 @@ class AppWidget extends StatelessWidget {
         localizationsDelegates: [
           AppLocalization.delegate,
           GlobalMaterialLocalizations.delegate,
+          GlobalCupertinoLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate
         ],
         localeResolutionCallback: (locale, supportedLocales) {
