@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gofast/src/app/app_controller.dart';
-import 'package:flutter_gofast/src/core/interfaces/auth_repository_interface.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import '../../app/app_controller.dart';
+import '../../core/interfaces/auth_repository_interface.dart';
+
+// ignore: public_member_api_docs
 class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {

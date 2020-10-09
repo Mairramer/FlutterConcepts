@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gofast/src/app/app_controller.dart';
-import 'package:flutter_gofast/src/core/features/internationalization/app_localization.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
+import '../core/features/internationalization/app_localization.dart';
+import 'app_controller.dart';
+
+// ignore: public_member_api_docs
 class AppWidget extends StatelessWidget {
   // This widget is the root of your application.
   @override

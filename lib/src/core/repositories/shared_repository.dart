@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gofast/src/core/features/local_storage/local_storage.dart';
-import 'package:flutter_gofast/src/core/interfaces/shared_repository_interface.dart';
+import '../features/local_storage/local_storage.dart';
+import '../interfaces/shared_repository_interface.dart';
 
 //pode ser usado para diversas opçoes
 class SharedRepository implements ISharedPrederenceInterface {

@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gofast/src/core/features/theme/app_theme_factor.dart';
-import 'package:flutter_gofast/src/core/interfaces/shared_repository_interface.dart';
-import 'package:flutter_gofast/src/core/interfaces/theme_app_interface.dart';
-import 'package:flutter_gofast/src/core/repositories/shared_repository.dart';
-
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:mobx/mobx.dart';
+
+import '../core/features/theme/app_theme_factor.dart';
+import '../core/interfaces/shared_repository_interface.dart';
+import '../core/interfaces/theme_app_interface.dart';
+import '../core/repositories/shared_repository.dart';
+
 part 'app_controller.g.dart';
 
+// ignore: public_member_api_docs
 class AppController = _AppControllerBase with _$AppController;
 
 abstract class _AppControllerBase with Store {
@@ -17,14 +19,12 @@ abstract class _AppControllerBase with Store {
   }
 
   @action
-  loadThemeData() async {
-    await sharedRepository.getThemeMode().then(
-      (themeMode) {
-        themeApp = AppThemeFactory.getTheme(themeMode);
-        setThemeData(themeMode, saveShared: false);
-      },
-    );
-  }
+  loadThemeData() async => await sharedRepository.getThemeMode().then(
+        (themeMode) {
+          themeApp = AppThemeFactory.getTheme(themeMode);
+          setThemeData(themeMode, saveShared: false);
+        },
+      );
 
   @observable
   IThemeAppInterface themeApp = AppThemeFactory.getTheme(ThemeMode.light);

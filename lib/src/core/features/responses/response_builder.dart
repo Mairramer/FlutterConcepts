@@ -1,6 +1,7 @@
-import 'package:flutter_gofast/src/core/enums/app_enums.dart';
-import 'package:flutter_gofast/src/core/features/responses/response_default.dart';
+import '../../enums/app_enums.dart';
+import 'response_default.dart';
 
+// ignore: public_member_api_docs
 class ResponseBuilder {
   static DefaultResponse failed<T>({T object, String message}) {
     return DefaultResponse<T>(

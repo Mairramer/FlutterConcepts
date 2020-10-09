@@ -1,12 +1,16 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_gofast/src/core/features/responses/response_builder.dart';
-import 'package:flutter_gofast/src/core/features/responses/response_default.dart';
-import 'package:flutter_gofast/src/core/interfaces/auth_repository_interface.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+import '../features/responses/response_builder.dart';
+import '../features/responses/response_default.dart';
+import '../interfaces/auth_repository_interface.dart';
+
+// ignore: public_member_api_docs
 class AuthRepository implements IAuthRepository {
+  // ignore: public_member_api_docs
   final FirebaseAuth firebaseAuth;
 
+  // ignore: public_member_api_docs
   AuthRepository(this.firebaseAuth);
 
   @override
@@ -17,6 +21,7 @@ class AuthRepository implements IAuthRepository {
           email: email.trim(), password: password.trim());
       return ResponseBuilder.success<FirebaseUser>(
           object: await firebaseAuth.currentUser());
+      // ignore: avoid_catches_without_on_clauses
     } catch (e) {
       return ResponseBuilder.failed(object: e, message: e.toString());
     }
@@ -26,18 +31,17 @@ class AuthRepository implements IAuthRepository {
   // ignore: missing_return
   Future<DefaultResponse> doLoginGoogle() async {
     try {
-      final GoogleSignIn googleSignIn = GoogleSignIn();
+      final googleSignIn = GoogleSignIn();
 
-      final GoogleSignInAccount googleSignInAccount =
-          await googleSignIn.signIn();
+      final googleSignInAccount = await googleSignIn.signIn();
 
-      final GoogleSignInAuthentication googleSignInAuthentication =
+      final googleSignInAuthentication =
           await googleSignInAccount.authentication;
 
       FirebaseUser firebaseUser;
 
       if (googleSignInAuthentication.accessToken != null) {
-        final AuthCredential credential = GoogleAuthProvider.getCredential(
+        final credential = GoogleAuthProvider.getCredential(
             idToken: googleSignInAuthentication.idToken,
             accessToken: googleSignInAuthentication.accessToken);
 
@@ -48,9 +52,9 @@ class AuthRepository implements IAuthRepository {
 
       return ResponseBuilder.success<FirebaseUser>(
           object: firebaseUser, message: "Login realizado com sucesso!");
+      // ignore: avoid_catches_without_on_clauses
     } catch (e) {
-      return ResponseBuilder.failed(
-          object: e, message: "LLLLLL" + e.toString());
+      return ResponseBuilder.failed(object: e, message: "LLLLLL$e");
     }
   }
 
@@ -59,6 +63,7 @@ class AuthRepository implements IAuthRepository {
     try {
       return ResponseBuilder.success<FirebaseUser>(
           object: await firebaseAuth.currentUser());
+      // ignore: avoid_catches_without_on_clauses
     } catch (e) {
       return ResponseBuilder.failed(object: e, message: e.toString());
     }
@@ -69,6 +74,7 @@ class AuthRepository implements IAuthRepository {
     try {
       return ResponseBuilder.success<void>(
           object: await firebaseAuth.signOut());
+      // ignore: avoid_catches_without_on_clauses
     } catch (e) {
       return ResponseBuilder.failed(object: e, message: e.toString());
     }
@@ -84,6 +90,7 @@ class AuthRepository implements IAuthRepository {
           .then((auth) {
         return ResponseBuilder.success<FirebaseUser>(object: auth.user);
       });
+      // ignore: avoid_catches_without_on_clauses
     } catch (e) {
       return ResponseBuilder.failed(object: e, message: e.toString());
     }
