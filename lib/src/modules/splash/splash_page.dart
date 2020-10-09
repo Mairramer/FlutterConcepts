@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gofast/src/app/app_controller.dart';
+import 'package:flutter_gofast/src/core/interfaces/auth_repository_interface.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 class SplashPage extends StatelessWidget {
@@ -21,7 +22,16 @@ class SplashPage extends StatelessWidget {
             onPressed: () {
               Modular.get<AppController>().setThemeData(ThemeMode.light);
             },
-          )
+          ),
+          RaisedButton(
+              child: Text("Login"),
+              onPressed: () async {
+                await Modular.get<IAuthRepository>()
+                    .doLoginGoogle()
+                    .then((response) {
+                  print(response.message);
+                });
+              })
         ],
       ),
     ));
