@@ -5,6 +5,7 @@ abstract class ISharedPrederenceInterface {
   // ignore: public_member_api_docs
   String getUserInfo();
 
+  // ignore: public_member_api_docs
   saveUserInfo(String userInfo);
 
   // ignore: public_member_api_docs
