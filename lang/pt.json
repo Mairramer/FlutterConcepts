@@ -1,5 +1,12 @@
 {
-    "welcome": "Bem Vindo!",
-    "login": "Entrar",
-    "logout": "Sair"
+    "intro": {
+        "welcome": "Bem Vindo",
+        "login_now": "ENTRAR AGORA",
+        "or": "ou",
+        "login_google": "ENTRAR COM GOOGLE",
+        "step1": "Compartilhe suas fotos favoritas",
+        "step2": "Compartilhe seus momentos",
+        "step3": "Seja o que você quiser"
+    },
+    "login": {}
 }

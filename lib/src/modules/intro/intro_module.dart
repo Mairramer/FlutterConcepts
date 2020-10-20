@@ -8,7 +8,7 @@ class IntroModule extends ChildModule {
 
   @override
   List<ModularRouter> get routers =>
-      [ModularRouter('/login', child: (_, args) => IntroPage())];
+      [ModularRouter('/', child: (_, args) => IntroPage())];
 
   static Inject get to => Inject<IntroModule>.of();
 }

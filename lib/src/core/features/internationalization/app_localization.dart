@@ -10,20 +10,43 @@ class AppLocalization {
 
   AppLocalization(this.locale);
 
-  Map<String, String> _localizationStrings;
+  Map<String, dynamic> _localizationStrings;
 
   Future<bool> loadJson() async {
     String jsonString =
         await rootBundle.loadString("lang/${locale.languageCode}.json");
     Map<String, dynamic> jsonMap = jsonDecode(jsonString);
+
     _localizationStrings = jsonMap.map((key, value) {
-      return MapEntry(key, value.toString());
+      return MapEntry(key, value);
     });
     return true;
   }
 
-  String translate(String key) {
-    return _localizationStrings[key];
+  String translate(String key,
+      {Map<String, String> params, String defaultValue = ''}) {
+    var value;
+    if (key.contains(".")) {
+      key.split(".").forEach((element) {
+        if (value == null) {
+          value = _localizationStrings[element];
+        } else {
+          value = value[element];
+        }
+      });
+    }
+
+    if (value == null) {
+      return throw ArgumentError(
+          'key:$key not found in ${locale.languageCode}.json');
+    }
+
+    if (params != null) {
+      params.forEach((key, value) {
+        value = value.replaceAll('{{$key}}', value);
+      });
+    }
+    return value ?? defaultValue;
   }
 
   static AppLocalization of(BuildContext context) {

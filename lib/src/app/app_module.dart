@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gofast/src/core/consts/routers_const.dart';
+import 'package:flutter_gofast/src/modules/intro/intro_module.dart';
+import 'package:flutter_gofast/src/modules/login/login_module.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
 import '../core/interfaces/shared_repository_interface.dart';
@@ -21,9 +24,11 @@ class AppModule extends MainModule {
 
   @override
   List<ModularRouter> get routers => [
-        ModularRouter('/',
+        ModularRouter(RoutersConts.splash,
             child: (_, args) => SplashPage(),
             transition: TransitionType.noTransition),
-        ModularRouter('/home', module: HomeModule())
+        ModularRouter(RoutersConts.home, module: HomeModule()),
+        ModularRouter(RoutersConts.intro, module: IntroModule()),
+        ModularRouter(RoutersConts.login, module: LoginModule())
       ];
 }

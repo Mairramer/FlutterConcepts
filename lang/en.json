@@ -1,5 +1,13 @@
 {
-    "welcome": "Welcome!",
-    "login": "Login",
-    "logout": "Logout"
+
+    "intro": {
+        "welcome": "Welcome",
+        "login_now": "LOGIN NOW",
+        "or": "or",
+        "login_google": "LOGIN WITH GOOGLE",
+        "step1": "Share your favorite photos",
+        "step2": "Share your moments",
+        "step3": "Be whatever you want"
+    },
+    "login": {}
 }

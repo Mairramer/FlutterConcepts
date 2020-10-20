@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gofast/src/core/consts/routers_const.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -14,8 +15,9 @@ class AppWidget extends StatelessWidget {
     return Observer(builder: (context) {
       return MaterialApp(
         title: 'Flutter Modular',
-        initialRoute: '/',
+        initialRoute: RoutersConts.intro,
         theme: Modular.get<AppController>().themeApp.getTheme(),
+        themeMode: Modular.get<AppController>().themeMode,
         navigatorKey: Modular.navigatorKey,
         onGenerateRoute: Modular.generateRoute,
         supportedLocales: [Locale('en', 'US'), Locale('pt', 'BR')],
