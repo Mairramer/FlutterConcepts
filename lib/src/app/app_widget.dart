@@ -15,14 +15,14 @@ class AppWidget extends StatelessWidget {
     return Observer(builder: (context) {
       return MaterialApp(
         title: 'Flutter Modular',
-        initialRoute: RoutersConts.intro,
+        initialRoute: RoutersConst.splash,
         theme: Modular.get<AppController>().themeApp.getTheme(),
         themeMode: Modular.get<AppController>().themeMode,
         navigatorKey: Modular.navigatorKey,
         onGenerateRoute: Modular.generateRoute,
         supportedLocales: [Locale('en', 'US'), Locale('pt', 'BR')],
         localizationsDelegates: [
-          AppLocalization.delegate,
+          AppLocalizations.delegate,
           GlobalMaterialLocalizations.delegate,
           GlobalCupertinoLocalizations.delegate,
           GlobalWidgetsLocalizations.delegate

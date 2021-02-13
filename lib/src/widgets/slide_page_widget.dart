@@ -10,29 +10,27 @@ class SlidePageWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          Text(
-            text,
-            style: Theme.of(context)
-                .textTheme
-                .headline6
-                .copyWith(color: ColorsConst.grey600, fontSize: 18),
-          ),
-          Container(
-            child: Align(
-              alignment: Alignment.center,
-              child: Image.asset(
-                asset,
-                height: MediaQuery.of(context).size.height * 0.3,
-              ),
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        Text(
+          text,
+          style: Theme.of(context)
+              .textTheme
+              .headline6
+              .copyWith(color: ColorsConst.grey600, fontSize: 18),
+        ),
+        Container(
+          child: Align(
+            alignment: Alignment.center,
+            child: Image.asset(
+              asset,
+              height: MediaQuery.of(context).size.height * 0.3,
             ),
-          )
-        ],
-      ),
+          ),
+        )
+      ],
     );
   }
 }

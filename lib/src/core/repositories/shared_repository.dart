@@ -24,13 +24,10 @@ class SharedRepository implements ISharedPrederenceInterface {
       switch (value) {
         case THEME_MODE_DARK:
           return ThemeMode.dark;
-          break;
         case THEME_MODE_LIGHT:
           return ThemeMode.light;
-          break;
         default:
           return ThemeMode.light;
-          break;
       }
     });
   }

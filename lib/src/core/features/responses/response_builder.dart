@@ -1,9 +1,12 @@
+import 'package:flutter_gofast/src/core/errors/register_interceptor_error.dart';
+
 import '../../enums/app_enums.dart';
 import 'response_default.dart';
 
 // ignore: public_member_api_docs
 class ResponseBuilder {
-  static DefaultResponse failed<T>({T object, String message}) {
+  static DefaultResponse failed<T>(
+      {T object, String message, RegisterErrorInterceptor errorInterceptor}) {
     return DefaultResponse<T>(
         object: object, message: message, status: ResponseStatus.Failed);
   }

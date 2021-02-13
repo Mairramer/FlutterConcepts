@@ -3,20 +3,21 @@ import 'dart:core';
 import 'package:flutter/material.dart';
 import 'app_localization.dart';
 
-class AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalization> {
+class AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
   const AppLocalizationsDelegate();
+
   @override
   bool isSupported(Locale locale) {
     return ['pt', 'en'].contains(locale.languageCode);
   }
 
   @override
-  Future<AppLocalization> load(Locale locale) async {
-    AppLocalization localizations = AppLocalization(locale);
-    await localizations.loadJson();
+  Future<AppLocalizations> load(Locale locale) async {
+    var localizations = AppLocalizations(locale);
+    await localizations.load();
     return localizations;
   }
 
   @override
-  bool shouldReload(LocalizationsDelegate<AppLocalization> old) => false;
+  bool shouldReload(LocalizationsDelegate<AppLocalizations> old) => false;
 }
