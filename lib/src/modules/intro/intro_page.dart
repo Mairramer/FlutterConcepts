@@ -36,7 +36,7 @@ class _IntroPageState extends ModularState<IntroPage, IntroController> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     Text(
                       AppTranslator(context).text('intro.welcome'),
@@ -87,7 +87,7 @@ class _IntroPageState extends ModularState<IntroPage, IntroController> {
                       ],
                     ),
                     SizedBox(
-                      height: _height * 0.04,
+                      height: _height * 0.07,
                     ),
                     RaisedButton(
                       color: Colors.red,

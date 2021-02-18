@@ -8,5 +8,7 @@
         "step2": "Compartilhe seus momentos",
         "step3": "Seja o que você quiser"
     },
-    "login": {}
+    "login": {
+        "register": "REGISTRA-SE"
+    }
 }

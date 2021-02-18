@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gofast/src/core/auth/auth_controller.dart';
+import 'package:flutter_gofast/src/core/features/internationalization/app_translator.dart';
 import 'package:flutter_gofast/src/widgets/scroll_widget.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -59,7 +60,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     }
                   : null,
               child: Text(
-                "REGISTRAR-SE",
+                AppTranslator(context).text('login.register'),
                 style: Theme.of(context)
                     .textTheme
                     .bodyText2

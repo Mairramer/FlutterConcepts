@@ -9,5 +9,7 @@
         "step2": "Share your moments",
         "step3": "Be whatever you want"
     },
-    "login": {}
+    "login": {
+        "register": "REGISTER"
+    }
 }
