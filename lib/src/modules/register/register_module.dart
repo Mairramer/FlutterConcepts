@@ -3,13 +3,12 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'register_controller.dart';
 import 'register_page.dart';
 
-class RegisterModule extends ChildModule {
+class RegisterModule extends Module {
   @override
   List<Bind> get binds => [Bind((i) => RegisterController())];
 
   @override
-  List<ModularRouter> get routers =>
-      [ModularRouter('/register', child: (_, args) => RegisterPage())];
-
-  static Inject get to => Inject<RegisterModule>.of();
+  final List<ModularRoute> routes = [
+    ChildRoute('/register', child: (_, args) => RegisterPage())
+  ];
 }

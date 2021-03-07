@@ -39,10 +39,10 @@ class _IntroPageState extends ModularState<IntroPage, IntroController> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     Text(
-                      AppTranslator(context).text('intro.welcome'),
+                      AppTranslator(context).text('intro.welcome', params: {}),
                       style: Theme.of(context)
                           .textTheme
-                          .headline5
+                          .headline5!
                           .copyWith(fontWeight: FontWeight.bold),
                     ),
                     SlideWidget(
@@ -58,11 +58,13 @@ class _IntroPageState extends ModularState<IntroPage, IntroController> {
                     SizedBox(
                       height: _height * 0.06,
                     ),
-                    RaisedButton(
+                    ElevatedButton(
+                      // ignore: deprecated_member_use
                       onPressed: controller.doEnter,
                       child: Text(
-                        AppTranslator(context).text('intro.login_now'),
-                        style: Theme.of(context).textTheme.bodyText2.copyWith(
+                        AppTranslator(context)
+                            .text('intro.login_now', params: {}),
+                        style: Theme.of(context).textTheme.bodyText2!.copyWith(
                             color: Colors.white, fontWeight: FontWeight.bold),
                       ),
                     ),
@@ -76,10 +78,10 @@ class _IntroPageState extends ModularState<IntroPage, IntroController> {
                         Container(
                             height: 1, color: ColorsConst.grey400, width: 100),
                         Text(
-                          AppTranslator(context).text('intro.or'),
+                          AppTranslator(context).text('intro.or', params: {}),
                           style: Theme.of(context)
                               .textTheme
-                              .bodyText2
+                              .bodyText2!
                               .copyWith(color: ColorsConst.grey600),
                         ),
                         Container(
@@ -89,12 +91,15 @@ class _IntroPageState extends ModularState<IntroPage, IntroController> {
                     SizedBox(
                       height: _height * 0.07,
                     ),
-                    RaisedButton(
-                      color: Colors.red,
+                    ElevatedButton(
+                      style: ButtonStyle(
+                          backgroundColor:
+                              MaterialStateProperty.all<Color>(Colors.red)),
                       onPressed: () async => _authController.doLoginGoogle(),
                       child: Text(
-                        AppTranslator(context).text('intro.login_google'),
-                        style: Theme.of(context).textTheme.bodyText2.copyWith(
+                        AppTranslator(context)
+                            .text('intro.login_google', params: {}),
+                        style: Theme.of(context).textTheme.bodyText2!.copyWith(
                             color: Colors.white, fontWeight: FontWeight.bold),
                       ),
                     ),

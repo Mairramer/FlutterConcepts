@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gofast/src/core/consts/routers_const.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -15,11 +16,9 @@ class AppWidget extends StatelessWidget {
     return Observer(builder: (context) {
       return MaterialApp(
         title: 'Flutter Modular',
-        initialRoute: RoutersConst.splash,
+        initialRoute: RoutersConst.home,
         theme: Modular.get<AppController>().themeApp.getTheme(),
         themeMode: Modular.get<AppController>().themeMode,
-        navigatorKey: Modular.navigatorKey,
-        onGenerateRoute: Modular.generateRoute,
         supportedLocales: [Locale('en', 'US'), Locale('pt', 'BR')],
         localizationsDelegates: [
           AppLocalizations.delegate,
@@ -29,7 +28,7 @@ class AppWidget extends StatelessWidget {
         ],
         localeResolutionCallback: (locale, supportedLocales) {
           for (var supportedLocale in supportedLocales) {
-            if (supportedLocale.languageCode == locale.languageCode &&
+            if (supportedLocale.languageCode == locale!.languageCode &&
                 supportedLocale.countryCode == locale.countryCode) {
               return supportedLocale;
             }

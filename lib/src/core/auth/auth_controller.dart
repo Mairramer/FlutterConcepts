@@ -1,4 +1,5 @@
 import 'package:flutter_modular/flutter_modular.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:mobx/mobx.dart';
 
 import '../interfaces/auth_repository_interface.dart';
@@ -9,7 +10,7 @@ part 'auth_controller.g.dart';
 class AuthController = _AuthControllerBase with _$AuthController;
 
 abstract class _AuthControllerBase with Store {
-  IAuthRepository authRepository;
+  late IAuthRepository authRepository;
 
   _AuthControllerBase() {
     authRepository = Modular.get<IAuthRepository>();

@@ -5,7 +5,7 @@ class SlidePageWidget extends StatelessWidget {
   final String text;
   final String asset;
 
-  const SlidePageWidget({Key key, this.text = '', this.asset = ''})
+  const SlidePageWidget({Key? key, this.text = '', this.asset = ''})
       : super(key: key);
 
   @override
@@ -18,7 +18,7 @@ class SlidePageWidget extends StatelessWidget {
           text,
           style: Theme.of(context)
               .textTheme
-              .headline6
+              .headline6!
               .copyWith(color: ColorsConst.grey600, fontSize: 18),
         ),
         Container(

@@ -4,7 +4,8 @@ import 'dot_widget.dart';
 class SlideDotsWidget extends StatelessWidget {
   final int currentPage;
 
-  const SlideDotsWidget({Key key, this.currentPage}) : super(key: key);
+  const SlideDotsWidget({Key? key, required this.currentPage})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return SizedBox(

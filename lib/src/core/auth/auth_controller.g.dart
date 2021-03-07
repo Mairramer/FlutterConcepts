@@ -9,13 +9,10 @@ part of 'auth_controller.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$AuthController on _AuthControllerBase, Store {
-  Computed<bool> _$enableButtonComputed;
+  late Computed<bool> _$enableButtonComputed;
 
   @override
-  bool get enableButton =>
-      (_$enableButtonComputed ??= Computed<bool>(() => super.enableButton,
-              name: '_AuthControllerBase.enableButton'))
-          .value;
+  bool get enableButton => (_$enableButtonComputed).value;
 
   final _$emailAtom = Atom(name: '_AuthControllerBase.email');
 

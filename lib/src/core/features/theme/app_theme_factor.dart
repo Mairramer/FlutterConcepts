@@ -9,13 +9,10 @@ class AppThemeFactory {
     switch (themeMode) {
       case ThemeMode.dark:
         return ThemeDark();
-        break;
       case ThemeMode.light:
         return ThemeLight();
-        break;
       default:
         return ThemeLight();
-        break;
     }
   }
 }

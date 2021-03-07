@@ -5,7 +5,8 @@ class Dot extends StatelessWidget {
   final int index;
   final bool isActive;
 
-  const Dot({Key key, this.isActive, this.index}) : super(key: key);
+  const Dot({Key? key, required this.isActive, required this.index})
+      : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Padding(

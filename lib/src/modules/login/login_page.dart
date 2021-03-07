@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gofast/src/core/auth/auth_controller.dart';
 import 'package:flutter_gofast/src/core/features/internationalization/app_translator.dart';
 import 'package:flutter_gofast/src/widgets/scroll_widget.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -13,7 +14,7 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends ModularState<LoginPage, LoginController> {
-  AuthController _authController;
+  late AuthController _authController;
 
   @override
   void initState() {
@@ -50,22 +51,23 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
           Observer(
               name: 'LoginButton',
               builder: (context) {
-                return RaisedButton(
+                return ElevatedButton(
                   onPressed: _authController.enableButton
                       ? () async {
                           await _authController.doLoginEmail().catchError(
                             (error) {
-                              var scnackbar = SnackBar(
+                              var snackbar = SnackBar(
                                 content: Text(error.message),
                               );
-                              Scaffold.of(context).showSnackBar(scnackbar);
+                              // ignore: deprecated_member_use
+                              Scaffold.of(context).showSnackBar(snackbar);
                             },
                           );
                         }
                       : null,
                   child: Text(
-                    AppTranslator(context).text('intro.login_now'),
-                    style: Theme.of(context).textTheme.bodyText2.copyWith(
+                    AppTranslator(context).text('intro.login_now', params: {}),
+                    style: Theme.of(context).textTheme.bodyText2!.copyWith(
                         color: Colors.white, fontWeight: FontWeight.bold),
                   ),
                 );
@@ -73,28 +75,31 @@ class _LoginPageState extends ModularState<LoginPage, LoginController> {
           SizedBox(
             height: _height * 0.06,
           ),
-          RaisedButton(
-            color: Colors.red,
+          ElevatedButton(
+            style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Colors.red)),
             onPressed: _authController.doLoginGoogle,
             child: Text(
-              AppTranslator(context).text('intro.login_google'),
+              AppTranslator(context).text('intro.login_google', params: {}),
               style: Theme.of(context)
                   .textTheme
-                  .bodyText2
+                  .bodyText2!
                   .copyWith(color: Colors.white, fontWeight: FontWeight.bold),
             ),
           ),
           SizedBox(
             height: _height * 0.06,
           ),
-          RaisedButton(
-            color: Colors.grey,
+          ElevatedButton(
+            style: ButtonStyle(
+                backgroundColor: MaterialStateProperty.all<Color>(Colors.grey)),
+            // ignore: deprecated_member_use
             onPressed: controller.doRegister,
             child: Text(
               "REGISTRAR-SE",
               style: Theme.of(context)
                   .textTheme
-                  .bodyText2
+                  .bodyText2!
                   .copyWith(color: Colors.white, fontWeight: FontWeight.bold),
             ),
           ),

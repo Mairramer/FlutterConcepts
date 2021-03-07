@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ScrollWidget extends StatelessWidget {
   final List<Widget> children;
 
-  const ScrollWidget({key, this.children}) : super(key: key);
+  const ScrollWidget({key, required this.children}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(

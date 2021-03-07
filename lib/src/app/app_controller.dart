@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:mobx/mobx.dart';
 
 import '../core/features/theme/app_theme_factor.dart';

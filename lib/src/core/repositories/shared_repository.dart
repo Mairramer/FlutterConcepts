@@ -9,7 +9,7 @@ class SharedRepository implements ISharedPrederenceInterface {
   static const String THEME_MODE_LIGHT = 'ThemeMode.light';
 
   @override
-  String getUserInfo() {
+  String? getUserInfo() {
     return null;
   }
 

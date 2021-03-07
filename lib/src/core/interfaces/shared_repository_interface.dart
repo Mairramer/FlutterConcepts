@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 // ignore: public_member_api_docs
 abstract class ISharedPrederenceInterface {
   // ignore: public_member_api_docs
-  String getUserInfo();
+  String? getUserInfo();
 
   // ignore: public_member_api_docs
   saveUserInfo(String userInfo);

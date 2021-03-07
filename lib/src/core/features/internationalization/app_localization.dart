@@ -10,7 +10,8 @@ class AppLocalizations {
 
   AppLocalizations(this.locale);
 
-  Map<String, dynamic> _localizationsStrings; // Mudança de String para Dynamic
+  late Map<String, dynamic>
+      _localizationsStrings; // Mudança de String para Dynamic
 
   Future<bool> load() async {
     var jsonString =
@@ -25,7 +26,7 @@ class AppLocalizations {
   }
 
   String translate(String key,
-      {Map<String, String> params, String defaultValue = ''}) {
+      {required Map<String, String> params, String defaultValue = ''}) {
     var value;
     // Modificação do método para pegar json concatenado com . por nível
 
@@ -46,17 +47,15 @@ class AppLocalizations {
     }
 
     // parametros para poder concatenar valores com o texto
-    if (params != null) {
-      params.forEach((chave, valor) {
-        value = value.replaceAll('{{$chave}}', valor);
-      });
-    }
+    params.forEach((chave, valor) {
+      value = value.replaceAll('{{$chave}}', valor);
+    });
 
     // caso valor esteja nulo retorna o valor default
     return value ?? defaultValue;
   }
 
-  static AppLocalizations of(BuildContext context) {
+  static AppLocalizations? of(BuildContext context) {
     return Localizations.of<AppLocalizations>(context, AppLocalizations);
   }
 

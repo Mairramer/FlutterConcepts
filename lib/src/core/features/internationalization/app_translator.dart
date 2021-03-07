@@ -8,8 +8,8 @@ class AppTranslator {
   AppTranslator(this.context);
 
   String text(String key,
-      {Map<String, String> params, String defaultValue = ''}) {
-    return AppLocalizations.of(context)
+      {required Map<String, String> params, String defaultValue = ''}) {
+    return AppLocalizations.of(context)!
         .translate(key, params: params, defaultValue: defaultValue);
   }
 }

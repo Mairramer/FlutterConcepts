@@ -8,8 +8,7 @@ class HomeController {
   final FakeApiRepository _repository;
   final state = ValueNotifier<HomeState>(HomeState.success);
 
-  HomeController({FakeApiRepository repository})
-      : _repository = repository ?? FakeApiRepository();
+  HomeController({repository}) : _repository = repository;
 
   Future start() async {
     state.value = HomeState.loading;
@@ -30,7 +29,7 @@ class HomeController {
             shadowColor: Colors.black87,
             elevation: 10,
             child: ListTile(
-              title: Text(todo.title),
+              title: Text(todo.title!),
             ),
           );
         });
@@ -38,7 +37,7 @@ class HomeController {
 
   error() {
     return Center(
-      child: RaisedButton(
+      child: ElevatedButton(
           child: Text("Tente Novamente"),
           onPressed: () {
             start();
@@ -56,16 +55,12 @@ class HomeController {
     switch (state) {
       case HomeState.start:
         return start();
-        break;
       case HomeState.loading:
         return loading();
-        break;
       case HomeState.success:
         return success();
-        break;
       case HomeState.error:
         return error();
-        break;
       default:
         return start();
     }

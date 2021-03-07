@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gofast/src/core/auth/auth_controller.dart';
 import 'package:flutter_gofast/src/core/features/internationalization/app_translator.dart';
 import 'package:flutter_gofast/src/widgets/scroll_widget.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
@@ -11,7 +12,7 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  AuthController _authController;
+  late AuthController _authController;
 
   @override
   void initState() {
@@ -46,24 +47,25 @@ class _RegisterPageState extends State<RegisterPage> {
             height: _height * 0.06,
           ),
           Observer(builder: (context) {
-            return RaisedButton(
+            return ElevatedButton(
               onPressed: _authController.enableButton
                   ? () async {
                       await _authController.doRegister().catchError(
                         (error) {
-                          var scnackbar = SnackBar(
+                          var snackbar = SnackBar(
                             content: Text(error.message),
                           );
-                          Scaffold.of(context).showSnackBar(scnackbar);
+                          // ignore: deprecated_member_use
+                          Scaffold.of(context).showSnackBar(snackbar);
                         },
                       );
                     }
                   : null,
               child: Text(
-                AppTranslator(context).text('login.register'),
+                AppTranslator(context).text('login.register', params: {}),
                 style: Theme.of(context)
                     .textTheme
-                    .bodyText2
+                    .bodyText2!
                     .copyWith(color: Colors.white, fontWeight: FontWeight.bold),
               ),
             );

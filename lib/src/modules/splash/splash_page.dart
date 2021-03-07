@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gofast/src/core/consts/assets_const.dart';
 import 'package:flutter_gofast/src/core/consts/colors_const.dart';
 import 'package:flutter_gofast/src/core/consts/routers_const.dart';
+// ignore: import_of_legacy_library_into_null_safe
 import 'package:splashscreen/splashscreen.dart';
 
 // ignore: public_member_api_docs

@@ -1,10 +1,14 @@
 class FakeApiModel {
-  int userId;
-  int id;
-  String title;
-  bool completed;
+  int? userId;
+  int? id;
+  String? title;
+  bool? completed;
 
-  FakeApiModel({this.userId, this.id, this.title, this.completed});
+  FakeApiModel(
+      {required this.userId,
+      required this.id,
+      required this.title,
+      required this.completed});
 
   FakeApiModel.fromJson(Map<String, dynamic> json) {
     userId = json['userId'];
